@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>VPN Магазин</title>
+</head>
+<body>
+  <h2>Купить VPN-код за 100 Stars</h2>
+  <button onclick="buy()">Купить</button>
+  <p id="result"></p>
+
+  <script>
+    async function buy() {
+      const res = await fetch("/buy", { method: "POST" });
+      const data = await res.json();
+      document.getElementById("result").innerText = data.code || data.error;
+    }
+  </script>
+</body>
+</html>
